@@ -51,13 +51,13 @@ function Patients() {
         appointments.map((appointment) => (
           <Card key={appointment._id} sx={{ mb: 2 }}>
             <CardContent>
-              <Typography variant="h6">
-                Appointment with Doctor {appointment.doctorId}
-              </Typography>
               <Typography variant="body1">
+                {appointment?.userId?.name}
+              </Typography>
+              <Typography variant="body2">
                 Appointment Date: {new Date(appointment.appointmentDate).toLocaleString()}
               </Typography>
-              <Typography variant="body1" color="error">
+              <Typography variant="body2" color="error">
                 Status: {appointment.status}
               </Typography>
               <Button 
@@ -66,7 +66,7 @@ function Patients() {
                 sx={{ mt: 2 }}
                 onClick={() => handleChatOpen(appointment)} // Open chat for the selected appointment
               >
-                Chat with Doctor
+                Chat with Patient
               </Button>
             </CardContent>
           </Card>

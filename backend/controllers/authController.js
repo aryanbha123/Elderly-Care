@@ -16,7 +16,7 @@ export const registerUser = async (req, res) => {
   } = req.body;
 
   try {
-    console.log("req received");
+    // console.log("req received");
 
     const userExists = await User.findOne({ email });
     if (userExists)

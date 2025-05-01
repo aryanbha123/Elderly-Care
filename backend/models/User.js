@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
       return this.role === 'doctor';
     }
   },
-  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // elder 
 }, { timestamps: true });
 
 userSchema.pre('save', function (next) {
