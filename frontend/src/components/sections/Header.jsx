@@ -1,15 +1,14 @@
 import { Divider, IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
 import { Facebook, Instagram, LinkedIn, MenuOpen, WhatsApp } from '@mui/icons-material';
 import { href, Link } from 'react-router-dom';
 
 const Header = ({ connectOpen, setConnectOpen }) => {
     const NAV_ITEMS = [
-        { label: 'Home', to: 'home', callBack: () => { } },
-        { label: 'About', to: 'about', callBack: () => { } },
-        { label: 'Services', to: 'services', callBack: () => { } },
-        { label: 'Connect', to: 'connect', callBack: () => { setConnectOpen(true) } },
+        { label: 'Login', to: 'login', callBack: () => { } },
+        { label: 'Register', to: '/register', callBack: () => { } },
+        // { label: 'Services', to: 'services', callBack: () => { } },
+        // { label: 'Connect', to: 'connect', callBack: () => { setConnectOpen(true) } },
     ];
 
     const [isScroll, setIsScroll] = useState(false);
@@ -35,7 +34,7 @@ const Header = ({ connectOpen, setConnectOpen }) => {
                         {NAV_ITEMS.map((item, index) => (
                             <button
                                 onClick={item.callBack} key={item.to}>
-                                <ScrollLink
+                                <Link
                                     className="cursor-pointer text-xs"
                                     to={item.to}
                                     offset={-100}
@@ -44,7 +43,7 @@ const Header = ({ connectOpen, setConnectOpen }) => {
                                 >
                                     {item.label}
 
-                                </ScrollLink>
+                                </Link>
                                 {index < NAV_ITEMS.length - 1 && <Divider flexItem orientation="vertical" />}
                             </button>
                         ))}
@@ -68,16 +67,12 @@ const Header = ({ connectOpen, setConnectOpen }) => {
                             {[
                                 {
                                     icon: <Instagram fontSize='inherit' />,
-                                    href: "http://instagram.com/health.care.connect/?igsh=dWE4Zm14OG55eXE0#"
                                 }, {
                                     icon: <LinkedIn fontSize='inherit' />,
-                                    href: "https://www.facebook.com/people/Kajal-Kiran/pfbid059tZtpXsYxyRystJpPLuhQ8a8s6dXkK8eG2RhYj3TsM5GJske471xo4PWMFZLbk2l/?rdid=shmmWt9df5fNfhHt&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Dwn8mXM7v%2F"
                                 }, {
                                     icon: <WhatsApp fontSize='inherit' />,
-                                    href: "https://wa.me/+919119071612"
                                 }, {
                                     icon: <Facebook fontSize='inherit' />,
-                                    href: "https://www.facebook.com/people/Kajal-Kiran/pfbid059tZtpXsYxyRystJpPLuhQ8a8s6dXkK8eG2RhYj3TsM5GJske471xo4PWMFZLbk2l/?rdid=shmmWt9df5fNfhHt&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Dwn8mXM7v%2F"
                                 }].map((I, idx) => (
                                     <Link
                                         to={I.href}
@@ -108,14 +103,14 @@ const Header = ({ connectOpen, setConnectOpen }) => {
                     <div className="flex items-center gap-5 py-2 text-xs">
                         {NAV_ITEMS.map((item, index) => (
                             <React.Fragment key={item.to}>
-                                <ScrollLink
+                                <Link
                                     className="cursor-pointer text-xs"
                                     to={item.to}
                                     smooth={true}
                                     duration={500}
                                 >
                                     {item.label}
-                                </ScrollLink>
+                                </Link>
                                 {index < NAV_ITEMS.length - 1 && <Divider flexItem orientation="vertical" />}
                             </React.Fragment>
                         ))}
@@ -153,7 +148,7 @@ const Header = ({ connectOpen, setConnectOpen }) => {
             <div className={`${menuOpen ? 'translate-x-0' : 'translate-x-full'} fixed top-0 right-0 h-screen w-64 z-50 bg-white shadow-lg md:hidden transition-transform duration-200 ease-in-out rounded-l-xl p-6`}>
     <ul className="space-y-4">
         {NAV_ITEMS.map((item) => (
-            <ScrollLink
+            <Link
                 key={item.to}
                 className="block p-3 text-base font-medium text-gray-800 border-b border-gray-200 hover:bg-gray-100 hover:rounded-lg transition-all"
                 to={item.to}
@@ -162,7 +157,7 @@ const Header = ({ connectOpen, setConnectOpen }) => {
                 onClick={() => setMenuOpen(false)}
             >
                 {item.label}
-            </ScrollLink>
+            </Link>
         ))}
     </ul>
 </div>
