@@ -73,7 +73,6 @@ const Register = () => {
           onChange={handleChange}
           className="w-full px-4 py-2 mb-4 border border-gray-300 rounded"
         >
-          <option value="elderly">Elderly</option>
           <option value="doctor">Doctor</option>
           <option value="family">Family</option>
           <option value="caregiver">Caregiver</option>
